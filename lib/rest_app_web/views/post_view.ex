@@ -16,7 +16,8 @@ defmodule RestAppWeb.PostView do
       title: post.title,
       content: post.content,
       likes: post.likes,
-      dislikes: post.dislikes
+      dislikes: post.dislikes,
+      comments: post.comments
     }
   end
 end

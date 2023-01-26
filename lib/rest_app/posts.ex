@@ -18,7 +18,9 @@ defmodule RestApp.Posts do
 
   """
   def list_posts do
-    Repo.all(Post)
+    Post
+    |> Repo.all()
+    |> Repo.preload(:comments)
   end
 
   @doc """
@@ -35,7 +37,11 @@ defmodule RestApp.Posts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post!(id) do
+    Post
+    |> Repo.get(id)
+    |> Repo.preload(:comments)
+  end
 
   @doc """
   Creates a post.
@@ -51,6 +57,7 @@ defmodule RestApp.Posts do
   """
   def create_post(attrs \\ %{}) do
     %Post{}
+    |> Repo.preload(:comments)
     |> Post.changeset(attrs)
     |> Repo.insert()
   end
