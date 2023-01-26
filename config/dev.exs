@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :rest_app, RestApp.Repo,
   username: "backend",
-  password: "backend_pw",
+  password: "backend_dev",
   hostname: "localhost",
   database: "rest_app_dev",
   stacktrace: true,
