@@ -49,10 +49,10 @@ defmodule RestApp.Comments do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_comment(attrs \\ %{}) do
-    %Comment{}
-    |> Comment.changeset(attrs)
-    |> Repo.insert()
+  def create_comment(attrs \\ %{}, post_id) do
+    post = Repo.get(Post, post_id)
+    comment_changeset = Ecto.build_assoc(post, :comments, content: attrs[" content "])
+    Repo.insert(comment_changeset)
   end
 
   @doc """

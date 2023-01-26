@@ -11,7 +11,7 @@ defmodule RestAppWeb.CommentController do
     render(conn, "index.json", comments: comments)
   end
 
-  def create(conn, %{"comment" => comment_params}) do
+  def create(conn, %{"comment" => comment_params, "post_id" => post_id}) do
     with {:ok, %Comment{} = comment} <- Comments.create_comment(comment_params) do
       conn
       |> put_status(:created)
