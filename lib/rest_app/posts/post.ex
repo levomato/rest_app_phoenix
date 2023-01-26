@@ -7,6 +7,7 @@ defmodule RestApp.Posts.Post do
     field :dislikes, :integer
     field :likes, :integer
     field :title, :string
+    has_many :comments, RestApp.Comments.Comment
 
     timestamps()
   end

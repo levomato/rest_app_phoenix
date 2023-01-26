@@ -4,7 +4,7 @@ defmodule RestApp.Comments.Comment do
 
   schema "comments" do
     field :content, :string
-    field :post_id, :id
+    belongs_to :post, RestApp.Posts.Post
 
     timestamps()
   end
