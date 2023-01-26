@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=backend
+      - POSTGRES_PASSWORD=backend_dev
+      - POSTGRES_DB=rest_dev
+    ports:
+      - 5432:5432
+  web:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=ecto://backend:backend_dev@db/rest_dev
+      - SECRET_KEY_BASE=b9NkIz4pW7djx5q++XB7bDk+9wCDXUDOvb8FpFAcuSvXOtmUj/LoLdkciI7kYxzK
+    depends_on:
+      - db
