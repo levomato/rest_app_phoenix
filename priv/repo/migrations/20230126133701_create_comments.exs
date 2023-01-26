@@ -4,7 +4,7 @@ defmodule RestApp.Repo.Migrations.CreateComments do
   def change do
     create table(:comments) do
       add :content, :text
-      add :post_id, references(:post, on_delete: :nothing)
+      add :post_id, references(:post, on_delete: :delete_all)
 
       timestamps()
     end
