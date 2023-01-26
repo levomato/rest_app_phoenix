@@ -7,5 +7,9 @@ defmodule RestAppWeb.Router do
 
   scope "/api", RestAppWeb do
     pipe_through :api
+
+    resources "/posts", PostController, except: [:new, :edit] do
+      resources "/comments", CommentController, except: [:new, :edit]
+    end
   end
 end
