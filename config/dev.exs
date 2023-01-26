@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :rest_app, RestApp.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "backend",
+  password: "backend_pw",
   hostname: "localhost",
   database: "rest_app_dev",
   stacktrace: true,
